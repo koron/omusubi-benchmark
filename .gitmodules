@@ -1,0 +1,3 @@
+[submodule "omusubi"]
+	path = omusubi
+	url = https://github.com/koron/omusubi.git

@@ -11,6 +11,7 @@ repositories {
 }
 
 dependencies {
+    compile project(':omusubi')
     compile fileTree(dir: 'libs', include: '*.jar')
     testCompile group: 'junit', name: 'junit', version: '4.+'
 }
