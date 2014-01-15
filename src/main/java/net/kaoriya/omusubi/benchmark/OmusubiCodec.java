@@ -4,7 +4,15 @@ import net.kaoriya.omusubi.IntDZBP;
 
 public class OmusubiCodec implements Codec {
 
-    private IntDZBP codec = new IntDZBP();
+    private IntDZBP codec;
+
+    public OmusubiCodec(IntDZBP codec) {
+        this.codec = codec;
+    }
+
+    public OmusubiCodec() {
+        this(new IntDZBP());
+    }
 
     public String getName() {
         return "Omusubi";
