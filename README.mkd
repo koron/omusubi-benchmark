@@ -1,3 +1,42 @@
 # Omusubi Benchmark
 
 Benchmark [omusubi](https://github.com/koron/omusubi) and [DeltaZigzagBinaryPacking2](https://github.com/koron/JavaFastPFOR).
+
+How to run benchmark:
+
+```
+$ gradle run
+:compileJava UP-TO-DATE
+:processResources UP-TO-DATE
+:classes UP-TO-DATE
+:run
+Benchmarking Omusubi...
+Benchmarking Lemire (DeltaZigzagBinaryPacking2)...
+Benchmarks Results:
+Codec:  Omusubi
+  Data: Random(count=8192 length=1280 mean=1048576 range=1024)
+  Density:           45.20 bits/int
+  Compress Speed:       90 MiS
+  Decompress Speed:     45 MiS
+Codec:  Omusubi
+  Data: Random(count=20 length=1048576 mean=1048576 range=1024)
+  Density:           45.00 bits/int
+  Compress Speed:       92 MiS
+  Decompress Speed:     45 MiS
+Codec:  Lemire (DeltaZigzagBinaryPacking2)
+  Data: Random(count=8192 length=1280 mean=1048576 range=1024)
+  Density:           46.25 bits/int
+  Compress Speed:      292 MiS
+  Decompress Speed:    263 MiS
+Codec:  Lemire (DeltaZigzagBinaryPacking2)
+  Data: Random(count=20 length=1048576 mean=1048576 range=1024)
+  Density:           45.00 bits/int
+  Compress Speed:      301 MiS
+  Decompress Speed:    238 MiS
+
+BUILD SUCCESSFUL
+
+Total time: 26.11 secs
+```
+
+It shows Omusubi is slower 3-6 times than Lemire.
