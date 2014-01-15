@@ -1,6 +1,7 @@
 package net.kaoriya.omusubi.benchmark;
 
 import java.io.PrintStream;
+
 public class Benchmarks {
 
     public void prepare() {
