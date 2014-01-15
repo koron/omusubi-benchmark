@@ -15,25 +15,24 @@ Benchmarking Lemire (DeltaZigzagBinaryPacking2)...
 Benchmarks Results:
 Codec:  Omusubi
   Data: Random(count=8192 length=1280 mean=1048576 range=1024)
-  Density:           45.20 bits/int
-  Compress Speed:       90 MiS
-  Decompress Speed:     45 MiS
+  Density:           11.30 bits/int
+  Compress Speed:       89 MiS
+  Decompress Speed:     44 MiS
 Codec:  Omusubi
   Data: Random(count=20 length=1048576 mean=1048576 range=1024)
-  Density:           45.00 bits/int
-  Compress Speed:       92 MiS
-  Decompress Speed:     45 MiS
+  Density:           11.25 bits/int
+  Compress Speed:       90 MiS
+  Decompress Speed:     44 MiS
 Codec:  Lemire (DeltaZigzagBinaryPacking2)
   Data: Random(count=8192 length=1280 mean=1048576 range=1024)
-  Density:           46.25 bits/int
-  Compress Speed:      292 MiS
-  Decompress Speed:    263 MiS
+  Density:           11.56 bits/int
+  Compress Speed:      279 MiS
+  Decompress Speed:    249 MiS
 Codec:  Lemire (DeltaZigzagBinaryPacking2)
   Data: Random(count=20 length=1048576 mean=1048576 range=1024)
-  Density:           45.00 bits/int
-  Compress Speed:      301 MiS
-  Decompress Speed:    238 MiS
-
+  Density:           11.25 bits/int
+  Compress Speed:      304 MiS
+  Decompress Speed:    247 MiS
 BUILD SUCCESSFUL
 
 Total time: 26.11 secs

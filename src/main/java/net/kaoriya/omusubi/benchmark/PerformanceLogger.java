@@ -46,7 +46,7 @@ public final class PerformanceLogger
     }
 
     public double getBitPerInt() {
-        return this.compressedSize * 32.0 / this.originalSize;
+        return this.compressedSize * 8.0 / this.originalSize;
     }
 
     private static double getMiS(long size, long nanoTime) {
