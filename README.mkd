@@ -1,1 +1,3 @@
 # Omusubi Benchmark
+
+Benchmark [omusubi](https://github.com/koron/omusubi) and [DeltaZigzagBinaryPacking2](https://github.com/koron/JavaFastPFOR).
