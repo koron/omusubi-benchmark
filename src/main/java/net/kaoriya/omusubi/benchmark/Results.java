@@ -1,5 +1,7 @@
 package net.kaoriya.omusubi.benchmark;
 
+import net.kaoriya.omusubi.benchmark.generator.DataGenerator;
+
 public class Results {
     public String dataName;
     public String codecName;
@@ -35,7 +37,11 @@ public class Results {
 
     public String toReportString() {
         return String.format(
-                "Data:%1$s Codec:%2$s, BPI:%3$.2f CSPD:%4$.0f, DSPD:%5$.0f",
+                "Codec:  %2$s\n" +
+                "  Data: %1$s\n" + 
+                "  Density:          %3$6.2f bits/int\n" +
+                "  Compress Speed:   %4$6.0f MiS\n" +
+                "  Decompress Speed: %5$6.0f MiS",
                 this.dataName, this.codecName,
                 this.bitPerInt, this.compressSpeed, this.decompressSpeed);
     }

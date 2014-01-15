@@ -1,6 +1,11 @@
 package net.kaoriya.omusubi.benchmark;
 
 import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.List;
+
+import net.kaoriya.omusubi.benchmark.generator.DataGenerator;
+import net.kaoriya.omusubi.benchmark.generator.RandomGenerator;
 
 public class Benchmarks {
 
@@ -10,12 +15,15 @@ public class Benchmarks {
 
     private DataGenerator[] generators;
 
-    private Results[] results;
+    private List<Results> results;
 
     public void prepare() {
         this.generators = new DataGenerator[] {
+            new RandomGenerator(0, 8 * 1024, 1280, 1 << 20, 1 << 10),
+            new RandomGenerator(0, 20, 1 << 20, 1 << 20, 1 << 10),
             // TODO: add DataGenerator
         };
+        this.results = new ArrayList<Results>();
     }
 
     public Results executeOne(Codec c, DataGenerator g) {
@@ -55,17 +63,13 @@ public class Benchmarks {
 
     public void execute(Codec c) {
         System.out.println("Benchmarking " + c.getName() + "...");
-        this.results = null;
-        Results[] results = new Results[generators.length];
-        int i = 0;
         for (DataGenerator g : this.generators) {
-            results[i++] = execute(c, g);
+            this.results.add(execute(c, g));
         }
-        this.results = results;
     }
 
     public void report(PrintStream out) {
-        if (this.results == null || this.results.length == 0) {
+        if (this.results == null || this.results.size() == 0) {
             out.println("No benchmarks executed.");
             return;
         }

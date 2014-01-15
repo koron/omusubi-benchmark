@@ -1,4 +1,4 @@
-package net.kaoriya.omusubi.benchmark;
+package net.kaoriya.omusubi.benchmark.generator;
 
 public abstract class DataGenerator {
 
