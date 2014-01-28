@@ -16,26 +16,27 @@ Benchmarks Results:
 Codec:  Omusubi
   Data: Random(count=8192 length=1280 mean=1048576 range=1024)
   Density:           11.30 bits/int
-  Compress Speed:       87 MiS
-  Decompress Speed:    108 MiS
+  Compress Speed:      106 MiS
+  Decompress Speed:    122 MiS
 Codec:  Omusubi
   Data: Random(count=20 length=1048576 mean=1048576 range=1024)
   Density:           11.25 bits/int
-  Compress Speed:       90 MiS
-  Decompress Speed:    112 MiS
+  Compress Speed:      110 MiS
+  Decompress Speed:    133 MiS
 Codec:  Lemire (DeltaZigzagBinaryPacking2)
   Data: Random(count=8192 length=1280 mean=1048576 range=1024)
   Density:           11.56 bits/int
-  Compress Speed:      265 MiS
-  Decompress Speed:    229 MiS
+  Compress Speed:      250 MiS
+  Decompress Speed:    227 MiS
 Codec:  Lemire (DeltaZigzagBinaryPacking2)
   Data: Random(count=20 length=1048576 mean=1048576 range=1024)
   Density:           11.25 bits/int
-  Compress Speed:      308 MiS
-  Decompress Speed:    246 MiS
+  Compress Speed:      263 MiS
+  Decompress Speed:    213 MiS
+
 BUILD SUCCESSFUL
 
-Total time: 26.11 secs
+Total time: 17.662 secs
 ```
 
 It shows Omusubi is slower 3-6 times than Lemire.
