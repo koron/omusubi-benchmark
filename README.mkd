@@ -12,47 +12,49 @@ $ gradle run
 :run
 Benchmarking Omusubi...
 Benchmarking Lemire (DeltaZigzagBinaryPacking2)...
+Benchmarking Lemire (BinaryPacking)...
+Benchmarking Lemire (IntegratedBinaryPacking)...
 Benchmarks Results:
 Codec:  Omusubi
   Data: Random(count=8192 length=1280 mean=1048576 range=1024)
   Density:           11.30 bits/int
-  Compress Speed:      127 MiS
-  Decompress Speed:    158 MiS
+  Compress Speed:      126 MiS
+  Decompress Speed:    157 MiS
 Codec:  Omusubi
   Data: Random(count=20 length=1048576 mean=1048576 range=1024)
   Density:           11.25 bits/int
-  Compress Speed:      139 MiS
-  Decompress Speed:    178 MiS
+  Compress Speed:      136 MiS
+  Decompress Speed:    177 MiS
 Codec:  Lemire (DeltaZigzagBinaryPacking2)
   Data: Random(count=8192 length=1280 mean=1048576 range=1024)
   Density:           11.56 bits/int
-  Compress Speed:      297 MiS
+  Compress Speed:      294 MiS
   Decompress Speed:    262 MiS
 Codec:  Lemire (DeltaZigzagBinaryPacking2)
   Data: Random(count=20 length=1048576 mean=1048576 range=1024)
   Density:           11.25 bits/int
-  Compress Speed:      308 MiS
-  Decompress Speed:    253 MiS
-Codec:  Lemire (BinaryPacking + VariableByte)
+  Compress Speed:      309 MiS
+  Decompress Speed:    252 MiS
+Codec:  Lemire (BinaryPacking)
   Data: Random(count=8192 length=1280 mean=1048576 range=1024)
   Density:           21.28 bits/int
-  Compress Speed:      292 MiS
-  Decompress Speed:    213 MiS
-Codec:  Lemire (BinaryPacking + VariableByte)
+  Compress Speed:      303 MiS
+  Decompress Speed:    212 MiS
+Codec:  Lemire (BinaryPacking)
   Data: Random(count=20 length=1048576 mean=1048576 range=1024)
   Density:           21.25 bits/int
-  Compress Speed:      303 MiS
-  Decompress Speed:    188 MiS
+  Compress Speed:      304 MiS
+  Decompress Speed:    178 MiS
 Codec:  Lemire (IntegratedBinaryPacking)
   Data: Random(count=8192 length=1280 mean=1048576 range=1024)
   Density:           32.28 bits/int
-  Compress Speed:      240 MiS
-  Decompress Speed:    152 MiS
+  Compress Speed:      261 MiS
+  Decompress Speed:    169 MiS
 Codec:  Lemire (IntegratedBinaryPacking)
   Data: Random(count=20 length=1048576 mean=1048576 range=1024)
   Density:           32.25 bits/int
-  Compress Speed:      241 MiS
-  Decompress Speed:    133 MiS
+  Compress Speed:      257 MiS
+  Decompress Speed:    143 MiS
 
 BUILD SUCCESSFUL
 
@@ -66,4 +68,4 @@ Executed on:
 *   Windows 7 Ultimate (64bit)
 *   Java 1.7.0\_25
 
-It shows Omusubi is slower about 2 times than Lemire.
+It shows Omusubi is slower about 2 or more times than Lemire.
