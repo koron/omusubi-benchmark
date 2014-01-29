@@ -16,27 +16,54 @@ Benchmarks Results:
 Codec:  Omusubi
   Data: Random(count=8192 length=1280 mean=1048576 range=1024)
   Density:           11.30 bits/int
-  Compress Speed:      106 MiS
-  Decompress Speed:    122 MiS
+  Compress Speed:      127 MiS
+  Decompress Speed:    158 MiS
 Codec:  Omusubi
   Data: Random(count=20 length=1048576 mean=1048576 range=1024)
   Density:           11.25 bits/int
-  Compress Speed:      110 MiS
-  Decompress Speed:    133 MiS
+  Compress Speed:      139 MiS
+  Decompress Speed:    178 MiS
 Codec:  Lemire (DeltaZigzagBinaryPacking2)
   Data: Random(count=8192 length=1280 mean=1048576 range=1024)
   Density:           11.56 bits/int
-  Compress Speed:      250 MiS
-  Decompress Speed:    227 MiS
+  Compress Speed:      297 MiS
+  Decompress Speed:    262 MiS
 Codec:  Lemire (DeltaZigzagBinaryPacking2)
   Data: Random(count=20 length=1048576 mean=1048576 range=1024)
   Density:           11.25 bits/int
-  Compress Speed:      263 MiS
+  Compress Speed:      308 MiS
+  Decompress Speed:    253 MiS
+Codec:  Lemire (BinaryPacking + VariableByte)
+  Data: Random(count=8192 length=1280 mean=1048576 range=1024)
+  Density:           21.28 bits/int
+  Compress Speed:      292 MiS
   Decompress Speed:    213 MiS
+Codec:  Lemire (BinaryPacking + VariableByte)
+  Data: Random(count=20 length=1048576 mean=1048576 range=1024)
+  Density:           21.25 bits/int
+  Compress Speed:      303 MiS
+  Decompress Speed:    188 MiS
+Codec:  Lemire (IntegratedBinaryPacking)
+  Data: Random(count=8192 length=1280 mean=1048576 range=1024)
+  Density:           32.28 bits/int
+  Compress Speed:      240 MiS
+  Decompress Speed:    152 MiS
+Codec:  Lemire (IntegratedBinaryPacking)
+  Data: Random(count=20 length=1048576 mean=1048576 range=1024)
+  Density:           32.25 bits/int
+  Compress Speed:      241 MiS
+  Decompress Speed:    133 MiS
 
 BUILD SUCCESSFUL
 
 Total time: 17.662 secs
 ```
 
-It shows Omusubi is slower 3-6 times than Lemire.
+Executed on:
+
+*   Core i7-3770K 3.50GHz
+*   32.0GB
+*   Windows 7 Ultimate (64bit)
+*   Java 1.7.0\_25
+
+It shows Omusubi is slower about 2 times than Lemire.
