@@ -18,43 +18,43 @@ Benchmarks Results:
 Codec:  Omusubi
   Data: Random(count=8192 length=1280 mean=1048576 range=1024)
   Density:           11.30 bits/int
-  Compress Speed:      126 MiS
-  Decompress Speed:    157 MiS
+  Compress Speed:      128 MiS
+  Decompress Speed:    151 MiS
 Codec:  Omusubi
   Data: Random(count=20 length=1048576 mean=1048576 range=1024)
   Density:           11.25 bits/int
-  Compress Speed:      136 MiS
-  Decompress Speed:    177 MiS
+  Compress Speed:      137 MiS
+  Decompress Speed:    175 MiS
 Codec:  Lemire (DeltaZigzagBinaryPacking2)
   Data: Random(count=8192 length=1280 mean=1048576 range=1024)
   Density:           11.56 bits/int
-  Compress Speed:      294 MiS
-  Decompress Speed:    262 MiS
+  Compress Speed:      283 MiS
+  Decompress Speed:    252 MiS
 Codec:  Lemire (DeltaZigzagBinaryPacking2)
   Data: Random(count=20 length=1048576 mean=1048576 range=1024)
   Density:           11.25 bits/int
-  Compress Speed:      309 MiS
-  Decompress Speed:    252 MiS
+  Compress Speed:      304 MiS
+  Decompress Speed:    248 MiS
 Codec:  Lemire (BinaryPacking)
   Data: Random(count=8192 length=1280 mean=1048576 range=1024)
   Density:           21.28 bits/int
-  Compress Speed:      303 MiS
-  Decompress Speed:    212 MiS
+  Compress Speed:      302 MiS
+  Decompress Speed:    211 MiS
 Codec:  Lemire (BinaryPacking)
   Data: Random(count=20 length=1048576 mean=1048576 range=1024)
   Density:           21.25 bits/int
-  Compress Speed:      304 MiS
-  Decompress Speed:    178 MiS
-Codec:  Lemire (IntegratedBinaryPacking)
+  Compress Speed:      285 MiS
+  Decompress Speed:    173 MiS
+Codec:  Lemire (JustCopy)
   Data: Random(count=8192 length=1280 mean=1048576 range=1024)
-  Density:           32.28 bits/int
-  Compress Speed:      261 MiS
-  Decompress Speed:    169 MiS
-Codec:  Lemire (IntegratedBinaryPacking)
+  Density:           32.00 bits/int
+  Compress Speed:      293 MiS
+  Decompress Speed:    170 MiS
+Codec:  Lemire (JustCopy)
   Data: Random(count=20 length=1048576 mean=1048576 range=1024)
-  Density:           32.25 bits/int
-  Compress Speed:      257 MiS
-  Decompress Speed:    143 MiS
+  Density:           32.00 bits/int
+  Compress Speed:      267 MiS
+  Decompress Speed:    132 MiS
 
 BUILD SUCCESSFUL
 
