@@ -22,7 +22,7 @@ public class RandomGenerator extends DataGenerator
 
     public String getName() {
         return String.format(
-                "Random(count=%3$d length=%4$d mean=%1$d range=%2$d)",
+                "Random(length=%4$d mean=%1$d range=%2$d) * %3$d",
                 this.mean, this.range, this.count, this.length);
     }
 
