@@ -16,46 +16,45 @@ Benchmarking Lemire (BinaryPacking)...
 Benchmarking Lemire (IntegratedBinaryPacking)...
 Benchmarks Results:
 Codec:  Omusubi
-  Data: Random(count=8192 length=1280 mean=1048576 range=1024)
+  Data: Random(length=1280 mean=1048576 range=1024) * 8192
   Density:           11.30 bits/int
-  Compress Speed:      128 MiS
-  Decompress Speed:    151 MiS
+  Compress Speed:      131 MiS
+  Decompress Speed:    183 MiS
 Codec:  Omusubi
-  Data: Random(count=20 length=1048576 mean=1048576 range=1024)
+  Data: Random(length=1048576 mean=1048576 range=1024) * 20
   Density:           11.25 bits/int
-  Compress Speed:      137 MiS
-  Decompress Speed:    175 MiS
+  Compress Speed:      140 MiS
+  Decompress Speed:    198 MiS
 Codec:  Lemire (DeltaZigzagBinaryPacking2)
-  Data: Random(count=8192 length=1280 mean=1048576 range=1024)
+  Data: Random(length=1280 mean=1048576 range=1024) * 8192
   Density:           11.56 bits/int
-  Compress Speed:      283 MiS
-  Decompress Speed:    252 MiS
+  Compress Speed:      293 MiS
+  Decompress Speed:    262 MiS
 Codec:  Lemire (DeltaZigzagBinaryPacking2)
-  Data: Random(count=20 length=1048576 mean=1048576 range=1024)
+  Data: Random(length=1048576 mean=1048576 range=1024) * 20
   Density:           11.25 bits/int
-  Compress Speed:      304 MiS
-  Decompress Speed:    248 MiS
+  Compress Speed:      312 MiS
+  Decompress Speed:    258 MiS
 Codec:  Lemire (BinaryPacking)
-  Data: Random(count=8192 length=1280 mean=1048576 range=1024)
+  Data: Random(length=1280 mean=1048576 range=1024) * 8192
   Density:           21.28 bits/int
-  Compress Speed:      302 MiS
-  Decompress Speed:    211 MiS
+  Compress Speed:      309 MiS
+  Decompress Speed:    214 MiS
 Codec:  Lemire (BinaryPacking)
-  Data: Random(count=20 length=1048576 mean=1048576 range=1024)
+  Data: Random(length=1048576 mean=1048576 range=1024) * 20
   Density:           21.25 bits/int
-  Compress Speed:      285 MiS
+  Compress Speed:      275 MiS
+  Decompress Speed:    163 MiS
+Codec:  Lemire (JustCopy)
+  Data: Random(length=1280 mean=1048576 range=1024) * 8192
+  Density:           32.00 bits/int
+  Compress Speed:      296 MiS
   Decompress Speed:    173 MiS
 Codec:  Lemire (JustCopy)
-  Data: Random(count=8192 length=1280 mean=1048576 range=1024)
-  Density:           32.00 bits/int
-  Compress Speed:      293 MiS
-  Decompress Speed:    170 MiS
-Codec:  Lemire (JustCopy)
-  Data: Random(count=20 length=1048576 mean=1048576 range=1024)
+  Data: Random(length=1048576 mean=1048576 range=1024) * 20
   Density:           32.00 bits/int
   Compress Speed:      267 MiS
-  Decompress Speed:    132 MiS
-
+  Decompress Speed:    137 MiS
 BUILD SUCCESSFUL
 
 Total time: 17.662 secs
