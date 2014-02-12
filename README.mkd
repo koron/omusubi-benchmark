@@ -86,7 +86,7 @@ Codec:  Omusubi
   Decompress Speed:    198 MiS
 ```
 
-## Use pack11 and others
+## Use pack11, unpack11 and others
 
 With omusubi's [impl-pack-n](https://github.com/koron/omusubi/tree/impl-pack-n) branch.
 
@@ -94,11 +94,11 @@ With omusubi's [impl-pack-n](https://github.com/koron/omusubi/tree/impl-pack-n) 
 Codec:  Omusubi
   Data: Random(length=1280 mean=1048576 range=1024) * 8192
   Density:           11.30 bits/int
-  Compress Speed:      172 MiS
-  Decompress Speed:    120 MiS
+  Compress Speed:      173 MiS
+  Decompress Speed:    386 MiS
 Codec:  Omusubi
   Data: Random(length=1048576 mean=1048576 range=1024) * 20
   Density:           11.25 bits/int
-  Compress Speed:      189 MiS
-  Decompress Speed:    129 MiS
+  Compress Speed:      185 MiS
+  Decompress Speed:    461 MiS
 ```
