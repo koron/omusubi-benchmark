@@ -69,30 +69,36 @@ Executed on:
 
 It shows Omusubi is slower about 2 or more times than Lemire.
 
-# Valiations
+# Variations
 
 ## Only packAny 
 
+```
 Codec:  Omusubi
   Data: Random(length=1280 mean=1048576 range=1024) * 8192
   Density:           11.30 bits/int
-  Compress Speed:      108 MiS
-  Decompress Speed:    131 MiS
+  Compress Speed:      131 MiS
+  Decompress Speed:    183 MiS
 Codec:  Omusubi
   Data: Random(length=1048576 mean=1048576 range=1024) * 20
   Density:           11.25 bits/int
-  Compress Speed:      112 MiS
-  Decompress Speed:    142 MiS
+  Compress Speed:      140 MiS
+  Decompress Speed:    198 MiS
+```
 
 ## Use pack11 and others
 
+With omusubi's [impl-pack-n](https://github.com/koron/omusubi/tree/impl-pack-n) branch.
+
+```
 Codec:  Omusubi
   Data: Random(length=1280 mean=1048576 range=1024) * 8192
   Density:           11.30 bits/int
-  Compress Speed:      155 MiS
-  Decompress Speed:     93 MiS
+  Compress Speed:      172 MiS
+  Decompress Speed:    120 MiS
 Codec:  Omusubi
   Data: Random(length=1048576 mean=1048576 range=1024) * 20
   Density:           11.25 bits/int
-  Compress Speed:      168 MiS
-  Decompress Speed:     99 MiS
+  Compress Speed:      189 MiS
+  Decompress Speed:    129 MiS
+```
