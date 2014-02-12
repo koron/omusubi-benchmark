@@ -69,3 +69,31 @@ Executed on:
 *   Java 1.7.0\_25
 
 It shows Omusubi is slower about 2 or more times than Lemire.
+
+# Valiations
+
+## Only packAny 
+
+Codec:  Omusubi
+  Data: Random(length=1280 mean=1048576 range=1024) * 8192
+  Density:           11.30 bits/int
+  Compress Speed:      108 MiS
+  Decompress Speed:    131 MiS
+Codec:  Omusubi
+  Data: Random(length=1048576 mean=1048576 range=1024) * 20
+  Density:           11.25 bits/int
+  Compress Speed:      112 MiS
+  Decompress Speed:    142 MiS
+
+## Use pack11 and others
+
+Codec:  Omusubi
+  Data: Random(length=1280 mean=1048576 range=1024) * 8192
+  Density:           11.30 bits/int
+  Compress Speed:      155 MiS
+  Decompress Speed:     93 MiS
+Codec:  Omusubi
+  Data: Random(length=1048576 mean=1048576 range=1024) * 20
+  Density:           11.25 bits/int
+  Compress Speed:      168 MiS
+  Decompress Speed:     99 MiS
