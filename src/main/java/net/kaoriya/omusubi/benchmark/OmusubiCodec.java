@@ -1,21 +1,17 @@
 package net.kaoriya.omusubi.benchmark;
 
-import net.kaoriya.omusubi.IntDZBP;
+import net.kaoriya.omusubi.IntCodec;
 
 public class OmusubiCodec implements Codec {
 
-    private IntDZBP codec;
+    private IntCodec codec;
 
-    public OmusubiCodec(IntDZBP codec) {
+    public OmusubiCodec(IntCodec codec) {
         this.codec = codec;
     }
 
-    public OmusubiCodec() {
-        this(new IntDZBP());
-    }
-
     public String getName() {
-        return "Omusubi";
+        return "Omusubi (" + this.codec.getClass().getSimpleName() + ")";
     }
 
     public byte[] toBytes(int[] src) {
