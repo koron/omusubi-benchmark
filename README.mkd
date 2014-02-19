@@ -6,58 +6,74 @@ How to run benchmark:
 
 ```
 $ gradle run
-:compileJava UP-TO-DATE
+:omusubi:compileJava UP-TO-DATE
+:omusubi:processResources UP-TO-DATE
+:omusubi:classes UP-TO-DATE
+:omusubi:jar UP-TO-DATE
+:compileJava
 :processResources UP-TO-DATE
-:classes UP-TO-DATE
+:classes
 :run
-Benchmarking Omusubi...
+Benchmarking Omusubi (IntDZBP)...
+Benchmarking Omusubi (IntJustCopy)...
 Benchmarking Lemire (DeltaZigzagBinaryPacking2)...
 Benchmarking Lemire (BinaryPacking)...
-Benchmarking Lemire (IntegratedBinaryPacking)...
+Benchmarking Lemire (JustCopy)...
 Benchmarks Results:
-Codec:  Omusubi
+Codec:  Omusubi (IntDZBP)
   Data: Random(length=1280 mean=1048576 range=1024) * 8192
   Density:           11.30 bits/int
-  Compress Speed:      131 MiS
-  Decompress Speed:    183 MiS
-Codec:  Omusubi
+  Compress Speed:      175 MiS
+  Decompress Speed:    391 MiS
+Codec:  Omusubi (IntDZBP)
   Data: Random(length=1048576 mean=1048576 range=1024) * 20
   Density:           11.25 bits/int
-  Compress Speed:      140 MiS
-  Decompress Speed:    198 MiS
+  Compress Speed:      193 MiS
+  Decompress Speed:    492 MiS
+Codec:  Omusubi (IntJustCopy)
+  Data: Random(length=1280 mean=1048576 range=1024) * 8192
+  Density:           32.00 bits/int
+  Compress Speed:      410 MiS
+  Decompress Speed:    390 MiS
+Codec:  Omusubi (IntJustCopy)
+  Data: Random(length=1048576 mean=1048576 range=1024) * 20
+  Density:           32.00 bits/int
+  Compress Speed:      447 MiS
+  Decompress Speed:    409 MiS
 Codec:  Lemire (DeltaZigzagBinaryPacking2)
   Data: Random(length=1280 mean=1048576 range=1024) * 8192
   Density:           11.56 bits/int
-  Compress Speed:      293 MiS
-  Decompress Speed:    262 MiS
+  Compress Speed:      286 MiS
+  Decompress Speed:    251 MiS
 Codec:  Lemire (DeltaZigzagBinaryPacking2)
   Data: Random(length=1048576 mean=1048576 range=1024) * 20
   Density:           11.25 bits/int
-  Compress Speed:      312 MiS
-  Decompress Speed:    258 MiS
+  Compress Speed:      309 MiS
+  Decompress Speed:    245 MiS
 Codec:  Lemire (BinaryPacking)
   Data: Random(length=1280 mean=1048576 range=1024) * 8192
   Density:           21.28 bits/int
-  Compress Speed:      309 MiS
+  Compress Speed:      294 MiS
   Decompress Speed:    214 MiS
 Codec:  Lemire (BinaryPacking)
   Data: Random(length=1048576 mean=1048576 range=1024) * 20
   Density:           21.25 bits/int
-  Compress Speed:      275 MiS
-  Decompress Speed:    163 MiS
+  Compress Speed:      304 MiS
+  Decompress Speed:    190 MiS
 Codec:  Lemire (JustCopy)
   Data: Random(length=1280 mean=1048576 range=1024) * 8192
   Density:           32.00 bits/int
-  Compress Speed:      296 MiS
-  Decompress Speed:    173 MiS
+  Compress Speed:      294 MiS
+  Decompress Speed:    169 MiS
 Codec:  Lemire (JustCopy)
   Data: Random(length=1048576 mean=1048576 range=1024) * 20
   Density:           32.00 bits/int
-  Compress Speed:      267 MiS
-  Decompress Speed:    137 MiS
+  Compress Speed:      272 MiS
+  Decompress Speed:    139 MiS
+
 BUILD SUCCESSFUL
 
-Total time: 17.662 secs
+Total time: 24.486 secs
 ```
 
 Executed on:
@@ -68,37 +84,3 @@ Executed on:
 *   Java 1.7.0\_25
 
 It shows Omusubi is slower about 2 or more times than Lemire.
-
-# Variations
-
-## Only packAny 
-
-```
-Codec:  Omusubi
-  Data: Random(length=1280 mean=1048576 range=1024) * 8192
-  Density:           11.30 bits/int
-  Compress Speed:      131 MiS
-  Decompress Speed:    183 MiS
-Codec:  Omusubi
-  Data: Random(length=1048576 mean=1048576 range=1024) * 20
-  Density:           11.25 bits/int
-  Compress Speed:      140 MiS
-  Decompress Speed:    198 MiS
-```
-
-## Use pack11, unpack11 and others
-
-With omusubi's [impl-pack-n](https://github.com/koron/omusubi/tree/impl-pack-n) branch.
-
-```
-Codec:  Omusubi
-  Data: Random(length=1280 mean=1048576 range=1024) * 8192
-  Density:           11.30 bits/int
-  Compress Speed:      173 MiS
-  Decompress Speed:    386 MiS
-Codec:  Omusubi
-  Data: Random(length=1048576 mean=1048576 range=1024) * 20
-  Density:           11.25 bits/int
-  Compress Speed:      185 MiS
-  Decompress Speed:    461 MiS
-```
