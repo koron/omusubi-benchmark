@@ -1,6 +1,7 @@
 package net.kaoriya.omusubi.benchmark;
 
 import net.kaoriya.omusubi.benchmark.generator.DataGenerator;
+import net.kaoriya.omusubi.benchmark.generator.LongDataGenerator;
 
 public class Results {
     public String dataName;
@@ -26,6 +27,18 @@ public class Results {
     public Results(
             DataGenerator g,
             Codec c,
+            PerformanceLogger l)
+    {
+        this.dataName = g.getName();
+        this.codecName = c.getName();
+        this.bitPerInt = l.getBitPerInt();
+        this.compressSpeed = l.getCompressSpeed();
+        this.decompressSpeed = l.getDecompressSpeed();
+    }
+
+    public Results(
+            LongDataGenerator g,
+            LongCodec c,
             PerformanceLogger l)
     {
         this.dataName = g.getName();
