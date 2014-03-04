@@ -9,6 +9,7 @@ public class Results {
     public double bitPerInt;
     public double compressSpeed;
     public double decompressSpeed;
+    private String unit = "MiS";
 
     public Results(
             String dataName,
@@ -46,6 +47,7 @@ public class Results {
         this.bitPerInt = l.getBitPerInt();
         this.compressSpeed = l.getCompressSpeed();
         this.decompressSpeed = l.getDecompressSpeed();
+        this.unit = "MlS";
     }
 
     public String toReportString() {
@@ -53,9 +55,10 @@ public class Results {
                 "Codec:  %2$s\n" +
                 "  Data: %1$s\n" + 
                 "  Density:          %3$6.2f bits/int\n" +
-                "  Compress Speed:   %4$6.0f MiS\n" +
-                "  Decompress Speed: %5$6.0f MiS",
+                "  Compress Speed:   %4$6.0f %6$s\n" +
+                "  Decompress Speed: %5$6.0f %6$s",
                 this.dataName, this.codecName,
-                this.bitPerInt, this.compressSpeed, this.decompressSpeed);
+                this.bitPerInt, this.compressSpeed, this.decompressSpeed,
+                this.unit);
     }
 }
