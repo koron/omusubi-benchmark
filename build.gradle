@@ -4,7 +4,7 @@ apply plugin: 'java'
 apply plugin: 'application'
 
 version = '0.1'
-mainClassName = 'net.kaoriya.omusubi.benchmark.Main'
+mainClassName = 'net.kaoriya.omusubi.benchmark.Main2'
 
 repositories {
     mavenCentral()
