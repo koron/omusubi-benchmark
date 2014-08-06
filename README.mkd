@@ -2,7 +2,34 @@
 
 Benchmark [omusubi](https://github.com/koron/omusubi) and [DeltaZigzagBinaryPacking2](https://github.com/koron/JavaFastPFOR).
 
-How to run benchmark:
+## How to run benchmark:
+
+### for delta-encoding branch
+
+```
+$ gradle run
+:omusubi is getting tests from [task ':omusubi:test']
+:omusubi:compileJava UP-TO-DATE
+:omusubi:processResources UP-TO-DATE
+:omusubi:classes UP-TO-DATE
+:omusubi:jar UP-TO-DATE
+:compileJava
+:processResources UP-TO-DATE
+:classes
+:run
+union (packed): C/S=48.364178
+union    (raw): C/S=30.514782
+intersect (packed): C/S=62.462509
+intersect    (raw): C/S=51.803517
+difference (packed): C/S=57.761670
+difference    (raw): C/S=48.993908
+
+BUILD SUCCESSFUL
+
+Total time: 16.255 secs
+```
+
+### for master branch
 
 ```
 $ gradle run
