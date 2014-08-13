@@ -23,12 +23,31 @@ public class Main2 {
         benchmarkIntersectRaw();
         benchmarkDifference();
         benchmarkDifferenceRaw();
+        printLegend();
     }
 
     public static void run(String name, Runnable proc) {
         LoopBenchmark b = new LoopBenchmark(proc);
         double cps = b.run();
         System.out.printf("%s: C/S=%f", name, cps);
+        System.out.println();
+    }
+
+    public static void printLegend() {
+        System.out.println();
+        System.out.println("- C/S : processing count per second");
+        System.out.println("- In  : input data size in byte for a proc.");
+        System.out.println("- Out : output data size in byte for a proc.");
+    }
+
+    public static void printSize(
+            int inSize1,
+            int inSize2,
+            int outSize)
+    {
+        System.out.printf(
+                "  In:%d+%d bytes Out:%d bytes",
+                inSize1, inSize2, outSize);
         System.out.println();
     }
 
@@ -40,6 +59,9 @@ public class Main2 {
                 byte[] result = IntAscSDBP.union(mul2, mul3);
             }
         });
+
+        byte[] result = IntAscSDBP.union(mul2, mul3);
+        printSize(mul2.length, mul3.length, result.length);
     }
 
     public static void benchmarkUnionRaw() {
@@ -51,6 +73,10 @@ public class Main2 {
                 int[] result = IntAscSDBP.union(readers).toIntArray();
             }
         });
+
+        List<IntAscSDBP.Reader> readers = newReaders(mul2, mul3);
+        int[] result = IntAscSDBP.union(readers).toIntArray();
+        printSize(mul2.length * 4, mul3.length * 4, result.length * 4);
     }
 
     public static void benchmarkIntersect() {
@@ -61,6 +87,9 @@ public class Main2 {
                 byte[] result = IntAscSDBP.intersect(mul2, mul3);
             }
         });
+
+        byte[] result = IntAscSDBP.intersect(mul2, mul3);
+        printSize(mul2.length, mul3.length, result.length);
     }
 
     public static void benchmarkIntersectRaw() {
@@ -74,6 +103,11 @@ public class Main2 {
                     IntAscSDBP.intersect(pivot, readers).toIntArray();
             }
         });
+
+        IntAscSDBP.Reader pivot = newReader(mul2);
+        List<IntAscSDBP.Reader> readers = newReaders(mul3);
+        int[] result = IntAscSDBP.intersect(pivot, readers).toIntArray();
+        printSize(mul2.length * 4, mul3.length * 4, result.length * 4);
     }
 
     public static void benchmarkDifference() {
@@ -84,6 +118,9 @@ public class Main2 {
                 byte[] result = IntAscSDBP.difference(mul2, mul3);
             }
         });
+
+        byte[] result = IntAscSDBP.difference(mul2, mul3);
+        printSize(mul2.length, mul3.length, result.length);
     }
 
     public static void benchmarkDifferenceRaw() {
@@ -97,6 +134,11 @@ public class Main2 {
                     IntAscSDBP.difference(pivot, readers).toIntArray();
             }
         });
+
+        IntAscSDBP.Reader pivot = newReader(mul2);
+        List<IntAscSDBP.Reader> readers = newReaders(mul3);
+        int[] result = IntAscSDBP.difference(pivot, readers).toIntArray();
+        printSize(mul2.length * 4, mul3.length * 4, result.length * 4);
     }
 
     static int[] generateIntSet(int start, int offset, int max) {

@@ -17,16 +17,26 @@ $ gradle run
 :processResources UP-TO-DATE
 :classes
 :run
-union (packed): C/S=48.364178
-union    (raw): C/S=30.514782
-intersect (packed): C/S=62.462509
-intersect    (raw): C/S=51.803517
-difference (packed): C/S=57.761670
-difference    (raw): C/S=48.993908
+union (packed): C/S=38.721239
+  In:140636+93764 bytes Out:195220 bytes
+union    (raw): C/S=28.546195
+  In:2000000+1333336 bytes Out:2666668 bytes
+intersect (packed): C/S=58.919117
+  In:140636+93764 bytes Out:56452 bytes
+intersect    (raw): C/S=47.230563
+  In:2000000+1333336 bytes Out:666668 bytes
+difference (packed): C/S=50.144156
+  In:140636+93764 bytes Out:136368 bytes
+difference    (raw): C/S=44.605499
+  In:2000000+1333336 bytes Out:1333332 bytes
+
+- C/S : processing count per second
+- In  : input data size in byte for a proc.
+- Out : output data size in byte for a proc.
 
 BUILD SUCCESSFUL
 
-Total time: 16.255 secs
+Total time: 16.604 secs
 ```
 
 ### for master branch
