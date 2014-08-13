@@ -7,7 +7,6 @@ Benchmark [omusubi](https://github.com/koron/omusubi) and [DeltaZigzagBinaryPack
 ### for delta-encoding branch
 
 ```
-$ gradle run
 :omusubi is getting tests from [task ':omusubi:test']
 :omusubi:compileJava UP-TO-DATE
 :omusubi:processResources UP-TO-DATE
@@ -17,18 +16,36 @@ $ gradle run
 :processResources UP-TO-DATE
 :classes
 :run
-union (packed): C/S=38.721239
+
+union (int,packed): C/S=40.546314
   In:140636+93764 bytes Out:195220 bytes
-union    (raw): C/S=28.546195
+union    (int,raw): C/S=26.860264
   In:2000000+1333336 bytes Out:2666668 bytes
-intersect (packed): C/S=58.919117
+intersect (int,packed): C/S=58.897877
   In:140636+93764 bytes Out:56452 bytes
-intersect    (raw): C/S=47.230563
+intersect    (int,raw): C/S=47.872888
   In:2000000+1333336 bytes Out:666668 bytes
-difference (packed): C/S=50.144156
+difference (int,packed): C/S=48.972744
   In:140636+93764 bytes Out:136368 bytes
-difference    (raw): C/S=44.605499
+difference    (int,raw): C/S=44.542661
   In:2000000+1333336 bytes Out:1333332 bytes
+
+- C/S : processing count per second
+- In  : input data size in byte for a proc.
+- Out : output data size in byte for a proc.
+
+union (long,packed): C/S=30.204284
+  In:312520+208360 bytes Out:433784 bytes
+union    (long,raw): C/S=28.448990
+  In:4000000+2666672 bytes Out:5333336 bytes
+intersect (long,packed): C/S=47.077628
+  In:312520+208360 bytes Out:86792 bytes
+intersect    (long,raw): C/S=52.282840
+  In:4000000+2666672 bytes Out:1333336 bytes
+difference (long,packed): C/S=39.625090
+  In:312520+208360 bytes Out:225672 bytes
+difference    (long,raw): C/S=47.833519
+  In:4000000+2666672 bytes Out:2666664 bytes
 
 - C/S : processing count per second
 - In  : input data size in byte for a proc.
@@ -36,7 +53,7 @@ difference    (raw): C/S=44.605499
 
 BUILD SUCCESSFUL
 
-Total time: 16.604 secs
+Total time: 29.37 secs
 ```
 
 ### for master branch
