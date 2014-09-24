@@ -4,12 +4,12 @@ import me.lemire.integercompression.BinaryPacking;
 import me.lemire.integercompression.DeltaZigzagBinaryPacking2;
 import me.lemire.integercompression.JustCopy;
 import me.lemire.integercompression.VariableByte;
-import net.kaoriya.omusubi.IntBitPacking;
 import net.kaoriya.omusubi.IntDZBP;
 import net.kaoriya.omusubi.IntJustCopy;
-import net.kaoriya.omusubi.LongBitPacking;
 import net.kaoriya.omusubi.LongDZBP;
 import net.kaoriya.omusubi.LongJustCopy;
+import net.kaoriya.omusubi.packers.IntBitPacking;
+import net.kaoriya.omusubi.packers.LongBitPacking;
 
 public class Main {
     public static void main(String[] args) {

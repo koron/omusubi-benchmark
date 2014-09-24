@@ -1,11 +1,11 @@
 package net.kaoriya.omusubi.benchmark;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import net.kaoriya.omusubi.IntArrayInputStream;
-import net.kaoriya.omusubi.IntArrayOutputStream;
 import net.kaoriya.omusubi.IntAscSDBP;
-import java.util.ArrayList;
+import net.kaoriya.omusubi.io.IntArrayInputStream;
+import net.kaoriya.omusubi.io.IntArrayOutputStream;
 
 public class Main2 {
 
