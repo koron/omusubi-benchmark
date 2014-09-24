@@ -1,11 +1,11 @@
 package net.kaoriya.omusubi.benchmark;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import net.kaoriya.omusubi.LongArrayInputStream;
-import net.kaoriya.omusubi.LongArrayOutputStream;
 import net.kaoriya.omusubi.LongAscSDBP;
-import java.util.ArrayList;
+import net.kaoriya.omusubi.io.LongArrayInputStream;
+import net.kaoriya.omusubi.io.LongArrayOutputStream;
 
 public class LongSetBenchmark {
 
@@ -21,16 +21,18 @@ public class LongSetBenchmark {
         printLegend();
     }
 
-    public static void run(String name, Runnable proc) {
+    public static void run(String name, Runnable proc, int readLen) {
         LoopBenchmark b = new LoopBenchmark(proc);
         double cps = b.run();
-        System.out.printf("%s: C/S=%f", name, cps);
+        double mlsr = cps * readLen * 1e-6;
+        System.out.printf("%-24s: C/S=%.3f MlS(R)=%.3f", name, cps, mlsr);
         System.out.println();
     }
 
     public static void printLegend() {
         System.out.println();
         System.out.println("- C/S : processing count per second");
+        System.out.println("- MlS(R) : processsed mega-long per second");
         System.out.println("- In  : input data size in byte for a proc.");
         System.out.println("- Out : output data size in byte for a proc.");
     }
@@ -53,7 +55,7 @@ public class LongSetBenchmark {
             public void run() {
                 byte[] result = LongAscSDBP.union(mul2, mul3);
             }
-        });
+        }, mul2.length + mul3.length);
 
         byte[] result = LongAscSDBP.union(mul2, mul3);
         printSize(mul2.length, mul3.length, result.length);
@@ -62,12 +64,12 @@ public class LongSetBenchmark {
     public static void benchmarkUnionRaw() {
         final long[] mul2 = generateLongSet(0, 2, NUM_MAX);
         final long[] mul3 = generateLongSet(0, 3, NUM_MAX);
-        run("union    (long,raw)", new Runnable() {
+        run("union (long,raw)", new Runnable() {
             public void run() {
                 List<LongAscSDBP.Reader> readers = newReaders(mul2, mul3);
                 long[] result = LongAscSDBP.union(readers).toLongArray();
             }
-        });
+        }, mul2.length + mul3.length);
 
         List<LongAscSDBP.Reader> readers = newReaders(mul2, mul3);
         long[] result = LongAscSDBP.union(readers).toLongArray();
@@ -81,7 +83,7 @@ public class LongSetBenchmark {
             public void run() {
                 byte[] result = LongAscSDBP.intersect(mul2, mul3);
             }
-        });
+        }, mul2.length + mul3.length);
 
         byte[] result = LongAscSDBP.intersect(mul2, mul3);
         printSize(mul2.length, mul3.length, result.length);
@@ -90,14 +92,14 @@ public class LongSetBenchmark {
     public static void benchmarkLongersectRaw() {
         final long[] mul2 = generateLongSet(0, 2, NUM_MAX);
         final long[] mul3 = generateLongSet(0, 3, NUM_MAX);
-        run("intersect    (long,raw)", new Runnable() {
+        run("intersect (long,raw)", new Runnable() {
             public void run() {
                 LongAscSDBP.Reader pivot = newReader(mul2);
                 List<LongAscSDBP.Reader> readers = newReaders(mul3);
                 long[] result =
                     LongAscSDBP.intersect(pivot, readers).toLongArray();
             }
-        });
+        }, mul2.length + mul3.length);
 
         LongAscSDBP.Reader pivot = newReader(mul2);
         List<LongAscSDBP.Reader> readers = newReaders(mul3);
@@ -112,7 +114,7 @@ public class LongSetBenchmark {
             public void run() {
                 byte[] result = LongAscSDBP.difference(mul2, mul3);
             }
-        });
+        }, mul2.length + mul3.length);
 
         byte[] result = LongAscSDBP.difference(mul2, mul3);
         printSize(mul2.length, mul3.length, result.length);
@@ -121,14 +123,14 @@ public class LongSetBenchmark {
     public static void benchmarkDifferenceRaw() {
         final long[] mul2 = generateLongSet(0, 2, NUM_MAX);
         final long[] mul3 = generateLongSet(0, 3, NUM_MAX);
-        run("difference    (long,raw)", new Runnable() {
+        run("difference (long,raw)", new Runnable() {
             public void run() {
                 LongAscSDBP.Reader pivot = newReader(mul2);
                 List<LongAscSDBP.Reader> readers = newReaders(mul3);
                 long[] result =
                     LongAscSDBP.difference(pivot, readers).toLongArray();
             }
-        });
+        }, mul2.length + mul3.length);
 
         LongAscSDBP.Reader pivot = newReader(mul2);
         List<LongAscSDBP.Reader> readers = newReaders(mul3);

@@ -4,7 +4,7 @@ Benchmark [omusubi](https://github.com/koron/omusubi) and [DeltaZigzagBinaryPack
 
 ## How to run benchmark:
 
-### for delta-encoding branch
+### Main2 benchmark
 
 ```
 :omusubi is getting tests from [task ':omusubi:test']
@@ -12,51 +12,53 @@ Benchmark [omusubi](https://github.com/koron/omusubi) and [DeltaZigzagBinaryPack
 :omusubi:processResources UP-TO-DATE
 :omusubi:classes UP-TO-DATE
 :omusubi:jar UP-TO-DATE
-:compileJava
+:compileJava UP-TO-DATE
 :processResources UP-TO-DATE
-:classes
+:classes UP-TO-DATE
 :run
 
-union (int,packed): C/S=40.546314
-  In:140636+93764 bytes Out:195220 bytes
-union    (int,raw): C/S=26.860264
+union (int,packed)      : C/S=32.497 MiS(R)=7.617
+  In:140636+93764 bytes Out:187516 bytes
+union (int,raw)         : C/S=30.138 MiS(R)=25.115
   In:2000000+1333336 bytes Out:2666668 bytes
-intersect (int,packed): C/S=58.897877
-  In:140636+93764 bytes Out:56452 bytes
-intersect    (int,raw): C/S=47.872888
+intersect (int,packed)  : C/S=64.489 MiS(R)=15.116
+  In:140636+93764 bytes Out:67728 bytes
+intersect (int,raw)     : C/S=55.293 MiS(R)=46.078
   In:2000000+1333336 bytes Out:666668 bytes
-difference (int,packed): C/S=48.972744
-  In:140636+93764 bytes Out:136368 bytes
-difference    (int,raw): C/S=44.542661
+difference (int,packed) : C/S=57.665 MiS(R)=13.517
+  In:140636+93764 bytes Out:135432 bytes
+difference (int,raw)    : C/S=52.021 MiS(R)=43.351
   In:2000000+1333336 bytes Out:1333332 bytes
 
-- C/S : processing count per second
-- In  : input data size in byte for a proc.
-- Out : output data size in byte for a proc.
+- C/S    : processing count per second
+- MiS(R) : processsed mega-ints per second
+- In     : input data size in byte for a proc.
+- Out    : output data size in byte for a proc.
 
-union (long,packed): C/S=30.204284
-  In:312520+208360 bytes Out:433784 bytes
-union    (long,raw): C/S=28.448990
+union (long,packed)     : C/S=33.938 MlS(R)=17.678
+  In:312520+208360 bytes Out:416688 bytes
+union (long,raw)        : C/S=33.569 MlS(R)=27.975
   In:4000000+2666672 bytes Out:5333336 bytes
-intersect (long,packed): C/S=47.077628
-  In:312520+208360 bytes Out:86792 bytes
-intersect    (long,raw): C/S=52.282840
+intersect (long,packed) : C/S=53.839 MlS(R)=28.043
+  In:312520+208360 bytes Out:104192 bytes
+intersect (long,raw)    : C/S=57.684 MlS(R)=48.070
   In:4000000+2666672 bytes Out:1333336 bytes
-difference (long,packed): C/S=39.625090
-  In:312520+208360 bytes Out:225672 bytes
-difference    (long,raw): C/S=47.833519
+difference (long,packed): C/S=46.587 MlS(R)=24.266
+  In:312520+208360 bytes Out:208360 bytes
+difference (long,raw)   : C/S=51.277 MlS(R)=42.731
   In:4000000+2666672 bytes Out:2666664 bytes
 
 - C/S : processing count per second
+- MlS(R) : processsed mega-long per second
 - In  : input data size in byte for a proc.
 - Out : output data size in byte for a proc.
 
 BUILD SUCCESSFUL
 
-Total time: 29.37 secs
+Total time: 28.724 secs
 ```
 
-### for master branch
+### Main benchmark
 
 ```
 $ gradle run

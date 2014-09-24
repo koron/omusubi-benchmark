@@ -1,11 +1,11 @@
 package net.kaoriya.omusubi.benchmark;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import net.kaoriya.omusubi.IntArrayInputStream;
-import net.kaoriya.omusubi.IntArrayOutputStream;
 import net.kaoriya.omusubi.IntAscSDBP;
-import java.util.ArrayList;
+import net.kaoriya.omusubi.io.IntArrayInputStream;
+import net.kaoriya.omusubi.io.IntArrayOutputStream;
 
 public class IntSetBenchmark {
 
@@ -21,18 +21,20 @@ public class IntSetBenchmark {
         printLegend();
     }
 
-    public static void run(String name, Runnable proc) {
+    public static void run(String name, Runnable proc, int readLen) {
         LoopBenchmark b = new LoopBenchmark(proc);
         double cps = b.run();
-        System.out.printf("%s: C/S=%f", name, cps);
+        double misr = cps * readLen * 1e-6;
+        System.out.printf("%-24s: C/S=%.3f MiS(R)=%.3f", name, cps, misr);
         System.out.println();
     }
 
     public static void printLegend() {
         System.out.println();
-        System.out.println("- C/S : processing count per second");
-        System.out.println("- In  : input data size in byte for a proc.");
-        System.out.println("- Out : output data size in byte for a proc.");
+        System.out.println("- C/S    : processing count per second");
+        System.out.println("- MiS(R) : processsed mega-ints per second");
+        System.out.println("- In     : input data size in byte for a proc.");
+        System.out.println("- Out    : output data size in byte for a proc.");
     }
 
     public static void printSize(
@@ -53,7 +55,7 @@ public class IntSetBenchmark {
             public void run() {
                 byte[] result = IntAscSDBP.union(mul2, mul3);
             }
-        });
+        }, mul2.length + mul3.length);
 
         byte[] result = IntAscSDBP.union(mul2, mul3);
         printSize(mul2.length, mul3.length, result.length);
@@ -62,12 +64,12 @@ public class IntSetBenchmark {
     public static void benchmarkUnionRaw() {
         final int[] mul2 = generateIntSet(0, 2, NUM_MAX);
         final int[] mul3 = generateIntSet(0, 3, NUM_MAX);
-        run("union    (int,raw)", new Runnable() {
+        run("union (int,raw)", new Runnable() {
             public void run() {
                 List<IntAscSDBP.Reader> readers = newReaders(mul2, mul3);
                 int[] result = IntAscSDBP.union(readers).toIntArray();
             }
-        });
+        }, mul2.length + mul3.length);
 
         List<IntAscSDBP.Reader> readers = newReaders(mul2, mul3);
         int[] result = IntAscSDBP.union(readers).toIntArray();
@@ -81,7 +83,7 @@ public class IntSetBenchmark {
             public void run() {
                 byte[] result = IntAscSDBP.intersect(mul2, mul3);
             }
-        });
+        }, mul2.length + mul3.length);
 
         byte[] result = IntAscSDBP.intersect(mul2, mul3);
         printSize(mul2.length, mul3.length, result.length);
@@ -90,14 +92,14 @@ public class IntSetBenchmark {
     public static void benchmarkIntersectRaw() {
         final int[] mul2 = generateIntSet(0, 2, NUM_MAX);
         final int[] mul3 = generateIntSet(0, 3, NUM_MAX);
-        run("intersect    (int,raw)", new Runnable() {
+        run("intersect (int,raw)", new Runnable() {
             public void run() {
                 IntAscSDBP.Reader pivot = newReader(mul2);
                 List<IntAscSDBP.Reader> readers = newReaders(mul3);
                 int[] result =
                     IntAscSDBP.intersect(pivot, readers).toIntArray();
             }
-        });
+        }, mul2.length + mul3.length);
 
         IntAscSDBP.Reader pivot = newReader(mul2);
         List<IntAscSDBP.Reader> readers = newReaders(mul3);
@@ -112,7 +114,7 @@ public class IntSetBenchmark {
             public void run() {
                 byte[] result = IntAscSDBP.difference(mul2, mul3);
             }
-        });
+        }, mul2.length + mul3.length);
 
         byte[] result = IntAscSDBP.difference(mul2, mul3);
         printSize(mul2.length, mul3.length, result.length);
@@ -121,14 +123,14 @@ public class IntSetBenchmark {
     public static void benchmarkDifferenceRaw() {
         final int[] mul2 = generateIntSet(0, 2, NUM_MAX);
         final int[] mul3 = generateIntSet(0, 3, NUM_MAX);
-        run("difference    (int,raw)", new Runnable() {
+        run("difference (int,raw)", new Runnable() {
             public void run() {
                 IntAscSDBP.Reader pivot = newReader(mul2);
                 List<IntAscSDBP.Reader> readers = newReaders(mul3);
                 int[] result =
                     IntAscSDBP.difference(pivot, readers).toIntArray();
             }
-        });
+        }, mul2.length + mul3.length);
 
         IntAscSDBP.Reader pivot = newReader(mul2);
         List<IntAscSDBP.Reader> readers = newReaders(mul3);
