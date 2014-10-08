@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.kaoriya.omusubi.LongAscSDBP;
+import net.kaoriya.omusubi.LongCodec;
 import net.kaoriya.omusubi.io.LongArrayInputStream;
 import net.kaoriya.omusubi.io.LongArrayOutputStream;
 
@@ -55,7 +56,7 @@ public class LongSetBenchmark {
             public void run() {
                 byte[] result = LongAscSDBP.union(mul2, mul3);
             }
-        }, mul2.length + mul3.length);
+        }, LongCodec.decodeLength(mul2) + LongCodec.decodeLength(mul3));
 
         byte[] result = LongAscSDBP.union(mul2, mul3);
         printSize(mul2.length, mul3.length, result.length);
@@ -83,7 +84,7 @@ public class LongSetBenchmark {
             public void run() {
                 byte[] result = LongAscSDBP.intersect(mul2, mul3);
             }
-        }, mul2.length + mul3.length);
+        }, LongCodec.decodeLength(mul2) + LongCodec.decodeLength(mul3));
 
         byte[] result = LongAscSDBP.intersect(mul2, mul3);
         printSize(mul2.length, mul3.length, result.length);
@@ -114,7 +115,7 @@ public class LongSetBenchmark {
             public void run() {
                 byte[] result = LongAscSDBP.difference(mul2, mul3);
             }
-        }, mul2.length + mul3.length);
+        }, LongCodec.decodeLength(mul2) + LongCodec.decodeLength(mul3));
 
         byte[] result = LongAscSDBP.difference(mul2, mul3);
         printSize(mul2.length, mul3.length, result.length);

@@ -4,7 +4,9 @@ Benchmark [omusubi](https://github.com/koron/omusubi) and [DeltaZigzagBinaryPack
 
 ## How to run benchmark:
 
-### Main2 benchmark
+    $ gradle run
+
+### Results
 
 ```
 :omusubi is getting tests from [task ':omusubi:test']
@@ -17,17 +19,122 @@ Benchmark [omusubi](https://github.com/koron/omusubi) and [DeltaZigzagBinaryPack
 :classes UP-TO-DATE
 :run
 
-union (int,packed)      : C/S=32.497 MiS(R)=7.617
+Benchmarking Omusubi (IntDZBP)...
+Benchmarking Omusubi (IntBitPacking)...
+Benchmarking Omusubi (IntJustCopy)...
+Benchmarks Results:
+Codec:  Omusubi (IntDZBP)
+  Data: Random(length=1280 mean=1048576 range=1024) * 8192
+  Density:           11.30 bits/int
+  Compress Speed:      173 MiS
+  Decompress Speed:    404 MiS
+Codec:  Omusubi (IntDZBP)
+  Data: Random(length=1048576 mean=1048576 range=1024) * 20
+  Density:           11.25 bits/int
+  Compress Speed:      181 MiS
+  Decompress Speed:    475 MiS
+Codec:  Omusubi (IntBitPacking)
+  Data: Random(length=1280 mean=1048576 range=1024) * 8192
+  Density:           21.25 bits/int
+  Compress Speed:      210 MiS
+  Decompress Speed:    294 MiS
+Codec:  Omusubi (IntBitPacking)
+  Data: Random(length=1048576 mean=1048576 range=1024) * 20
+  Density:           21.25 bits/int
+  Compress Speed:      157 MiS
+  Decompress Speed:    322 MiS
+Codec:  Omusubi (IntJustCopy)
+  Data: Random(length=1280 mean=1048576 range=1024) * 8192
+  Density:           32.00 bits/int
+  Compress Speed:      463 MiS
+  Decompress Speed:    456 MiS
+Codec:  Omusubi (IntJustCopy)
+  Data: Random(length=1048576 mean=1048576 range=1024) * 20
+  Density:           32.00 bits/int
+  Compress Speed:      472 MiS
+  Decompress Speed:    444 MiS
+
+Benchmarking Lemire (DeltaZigzagBinaryPacking2)...
+Benchmarking Lemire (BinaryPacking)...
+Benchmarking Lemire (JustCopy)...
+Benchmarks Results:
+Codec:  Lemire (DeltaZigzagBinaryPacking2)
+  Data: Random(length=1280 mean=1048576 range=1024) * 8192
+  Density:           11.56 bits/int
+  Compress Speed:      273 MiS
+  Decompress Speed:    239 MiS
+Codec:  Lemire (DeltaZigzagBinaryPacking2)
+  Data: Random(length=1048576 mean=1048576 range=1024) * 20
+  Density:           11.25 bits/int
+  Compress Speed:      275 MiS
+  Decompress Speed:    203 MiS
+Codec:  Lemire (BinaryPacking)
+  Data: Random(length=1280 mean=1048576 range=1024) * 8192
+  Density:           21.28 bits/int
+  Compress Speed:      281 MiS
+  Decompress Speed:    197 MiS
+Codec:  Lemire (BinaryPacking)
+  Data: Random(length=1048576 mean=1048576 range=1024) * 20
+  Density:           21.25 bits/int
+  Compress Speed:      290 MiS
+  Decompress Speed:    178 MiS
+Codec:  Lemire (JustCopy)
+  Data: Random(length=1280 mean=1048576 range=1024) * 8192
+  Density:           32.00 bits/int
+  Compress Speed:      266 MiS
+  Decompress Speed:    146 MiS
+Codec:  Lemire (JustCopy)
+  Data: Random(length=1048576 mean=1048576 range=1024) * 20
+  Density:           32.00 bits/int
+  Compress Speed:      241 MiS
+  Decompress Speed:    124 MiS
+
+Benchmarking Omusubi (LongDZBP)...
+Benchmarking Omusubi (LongBitPacking)...
+Benchmarking Omusubi (LongJustCopy)...
+Benchmarks Results:
+Codec:  Omusubi (LongDZBP)
+  Data: Random(length=1280 mean=1048576 range=1024) * 8192
+  Density:           13.10 bits/int
+  Compress Speed:      107 MlS
+  Decompress Speed:    145 MlS
+Codec:  Omusubi (LongDZBP)
+  Data: Random(length=1048576 mean=1048576 range=1024) * 20
+  Density:           13.00 bits/int
+  Compress Speed:      110 MlS
+  Decompress Speed:    162 MlS
+Codec:  Omusubi (LongBitPacking)
+  Data: Random(length=1280 mean=1048576 range=1024) * 8192
+  Density:           24.96 bits/int
+  Compress Speed:      114 MlS
+  Decompress Speed:    104 MlS
+Codec:  Omusubi (LongBitPacking)
+  Data: Random(length=1048576 mean=1048576 range=1024) * 20
+  Density:           24.96 bits/int
+  Compress Speed:      109 MlS
+  Decompress Speed:    114 MlS
+Codec:  Omusubi (LongJustCopy)
+  Data: Random(length=1280 mean=1048576 range=1024) * 8192
+  Density:           64.00 bits/int
+  Compress Speed:      211 MlS
+  Decompress Speed:    231 MlS
+Codec:  Omusubi (LongJustCopy)
+  Data: Random(length=1048576 mean=1048576 range=1024) * 20
+  Density:           64.00 bits/int
+  Compress Speed:      212 MlS
+  Decompress Speed:    213 MlS
+
+union (int,packed)      : C/S=38.200 MiS(R)=31.833
   In:140636+93764 bytes Out:187516 bytes
-union (int,raw)         : C/S=30.138 MiS(R)=25.115
+union (int,raw)         : C/S=30.727 MiS(R)=25.606
   In:2000000+1333336 bytes Out:2666668 bytes
-intersect (int,packed)  : C/S=64.489 MiS(R)=15.116
+intersect (int,packed)  : C/S=61.233 MiS(R)=51.027
   In:140636+93764 bytes Out:67728 bytes
-intersect (int,raw)     : C/S=55.293 MiS(R)=46.078
+intersect (int,raw)     : C/S=53.060 MiS(R)=44.216
   In:2000000+1333336 bytes Out:666668 bytes
-difference (int,packed) : C/S=57.665 MiS(R)=13.517
+difference (int,packed) : C/S=49.822 MiS(R)=41.518
   In:140636+93764 bytes Out:135432 bytes
-difference (int,raw)    : C/S=52.021 MiS(R)=43.351
+difference (int,raw)    : C/S=50.534 MiS(R)=42.112
   In:2000000+1333336 bytes Out:1333332 bytes
 
 - C/S    : processing count per second
@@ -35,17 +142,17 @@ difference (int,raw)    : C/S=52.021 MiS(R)=43.351
 - In     : input data size in byte for a proc.
 - Out    : output data size in byte for a proc.
 
-union (long,packed)     : C/S=33.938 MlS(R)=17.678
+union (long,packed)     : C/S=26.053 MlS(R)=21.711
   In:312520+208360 bytes Out:416688 bytes
-union (long,raw)        : C/S=33.569 MlS(R)=27.975
+union (long,raw)        : C/S=32.834 MlS(R)=27.362
   In:4000000+2666672 bytes Out:5333336 bytes
-intersect (long,packed) : C/S=53.839 MlS(R)=28.043
+intersect (long,packed) : C/S=42.254 MlS(R)=35.212
   In:312520+208360 bytes Out:104192 bytes
-intersect (long,raw)    : C/S=57.684 MlS(R)=48.070
+intersect (long,raw)    : C/S=58.481 MlS(R)=48.734
   In:4000000+2666672 bytes Out:1333336 bytes
-difference (long,packed): C/S=46.587 MlS(R)=24.266
+difference (long,packed): C/S=36.564 MlS(R)=30.470
   In:312520+208360 bytes Out:208360 bytes
-difference (long,raw)   : C/S=51.277 MlS(R)=42.731
+difference (long,raw)   : C/S=54.341 MlS(R)=45.284
   In:4000000+2666672 bytes Out:2666664 bytes
 
 - C/S : processing count per second
@@ -55,106 +162,7 @@ difference (long,raw)   : C/S=51.277 MlS(R)=42.731
 
 BUILD SUCCESSFUL
 
-Total time: 28.724 secs
-```
-
-### Main benchmark
-
-```
-$ gradle run
-:omusubi:compileJava UP-TO-DATE
-:omusubi:processResources UP-TO-DATE
-:omusubi:classes UP-TO-DATE
-:omusubi:jar UP-TO-DATE
-:compileJava UP-TO-DATE
-:processResources UP-TO-DATE
-:classes UP-TO-DATE
-:run
-
-Benchmarking Omusubi (IntDZBP)...
-Benchmarking Omusubi (IntJustCopy)...
-Benchmarking Lemire (DeltaZigzagBinaryPacking2)...
-Benchmarking Lemire (BinaryPacking)...
-Benchmarking Lemire (JustCopy)...
-Benchmarks Results:
-Codec:  Omusubi (IntDZBP)
-  Data: Random(length=1280 mean=1048576 range=1024) * 8192
-  Density:           11.30 bits/int
-  Compress Speed:      183 MiS
-  Decompress Speed:    425 MiS
-Codec:  Omusubi (IntDZBP)
-  Data: Random(length=1048576 mean=1048576 range=1024) * 20
-  Density:           11.25 bits/int
-  Compress Speed:      194 MiS
-  Decompress Speed:    511 MiS
-Codec:  Omusubi (IntJustCopy)
-  Data: Random(length=1280 mean=1048576 range=1024) * 8192
-  Density:           32.00 bits/int
-  Compress Speed:      413 MiS
-  Decompress Speed:    399 MiS
-Codec:  Omusubi (IntJustCopy)
-  Data: Random(length=1048576 mean=1048576 range=1024) * 20
-  Density:           32.00 bits/int
-  Compress Speed:      401 MiS
-  Decompress Speed:    391 MiS
-Codec:  Lemire (DeltaZigzagBinaryPacking2)
-  Data: Random(length=1280 mean=1048576 range=1024) * 8192
-  Density:           11.56 bits/int
-  Compress Speed:      295 MiS
-  Decompress Speed:    261 MiS
-Codec:  Lemire (DeltaZigzagBinaryPacking2)
-  Data: Random(length=1048576 mean=1048576 range=1024) * 20
-  Density:           11.25 bits/int
-  Compress Speed:      317 MiS
-  Decompress Speed:    250 MiS
-Codec:  Lemire (BinaryPacking)
-  Data: Random(length=1280 mean=1048576 range=1024) * 8192
-  Density:           21.28 bits/int
-  Compress Speed:      309 MiS
-  Decompress Speed:    216 MiS
-Codec:  Lemire (BinaryPacking)
-  Data: Random(length=1048576 mean=1048576 range=1024) * 20
-  Density:           21.25 bits/int
-  Compress Speed:      314 MiS
-  Decompress Speed:    193 MiS
-Codec:  Lemire (JustCopy)
-  Data: Random(length=1280 mean=1048576 range=1024) * 8192
-  Density:           32.00 bits/int
-  Compress Speed:      304 MiS
-  Decompress Speed:    173 MiS
-Codec:  Lemire (JustCopy)
-  Data: Random(length=1048576 mean=1048576 range=1024) * 20
-  Density:           32.00 bits/int
-  Compress Speed:      279 MiS
-  Decompress Speed:    145 MiS
-
-Benchmarking Omusubi (LongDZBP)...
-Benchmarking Omusubi (LongJustCopy)...
-Benchmarks Results:
-Codec:  Omusubi (LongDZBP)
-  Data: Random(length=1280 mean=1048576 range=1024) * 8192
-  Density:           13.10 bits/int
-  Compress Speed:      116 MlS
-  Decompress Speed:    161 MlS
-Codec:  Omusubi (LongDZBP)
-  Data: Random(length=1048576 mean=1048576 range=1024) * 20
-  Density:           13.00 bits/int
-  Compress Speed:      118 MlS
-  Decompress Speed:    171 MlS
-Codec:  Omusubi (LongJustCopy)
-  Data: Random(length=1280 mean=1048576 range=1024) * 8192
-  Density:           64.00 bits/int
-  Compress Speed:      224 MlS
-  Decompress Speed:    249 MlS
-Codec:  Omusubi (LongJustCopy)
-  Data: Random(length=1048576 mean=1048576 range=1024) * 20
-  Density:           64.00 bits/int
-  Compress Speed:      225 MlS
-  Decompress Speed:    225 MlS
-
-BUILD SUCCESSFUL
-
-Total time: 36.934 secs
+Total time: 1 mins 19.677 secs
 ```
 
 Executed on:

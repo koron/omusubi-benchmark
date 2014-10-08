@@ -11,11 +11,16 @@ import net.kaoriya.omusubi.LongJustCopy;
 import net.kaoriya.omusubi.packers.IntBitPacking;
 import net.kaoriya.omusubi.packers.LongBitPacking;
 
+/**
+ * Benchmark raw codecs.
+ */
 public class Main {
     public static void main(String[] args) {
         benchmarkIntOmusubi();
         benchmarkIntLemire();
         benchmarkLong();
+
+        Main2.main(args);
     }
 
     public static void benchmarkIntOmusubi() {

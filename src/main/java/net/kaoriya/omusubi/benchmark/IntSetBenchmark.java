@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.kaoriya.omusubi.IntAscSDBP;
+import net.kaoriya.omusubi.IntCodec;
 import net.kaoriya.omusubi.io.IntArrayInputStream;
 import net.kaoriya.omusubi.io.IntArrayOutputStream;
 
@@ -55,7 +56,7 @@ public class IntSetBenchmark {
             public void run() {
                 byte[] result = IntAscSDBP.union(mul2, mul3);
             }
-        }, mul2.length + mul3.length);
+        }, IntCodec.decodeLength(mul2) + IntCodec.decodeLength(mul3));
 
         byte[] result = IntAscSDBP.union(mul2, mul3);
         printSize(mul2.length, mul3.length, result.length);
@@ -83,7 +84,7 @@ public class IntSetBenchmark {
             public void run() {
                 byte[] result = IntAscSDBP.intersect(mul2, mul3);
             }
-        }, mul2.length + mul3.length);
+        }, IntCodec.decodeLength(mul2) + IntCodec.decodeLength(mul3));
 
         byte[] result = IntAscSDBP.intersect(mul2, mul3);
         printSize(mul2.length, mul3.length, result.length);
@@ -114,7 +115,7 @@ public class IntSetBenchmark {
             public void run() {
                 byte[] result = IntAscSDBP.difference(mul2, mul3);
             }
-        }, mul2.length + mul3.length);
+        }, IntCodec.decodeLength(mul2) + IntCodec.decodeLength(mul3));
 
         byte[] result = IntAscSDBP.difference(mul2, mul3);
         printSize(mul2.length, mul3.length, result.length);

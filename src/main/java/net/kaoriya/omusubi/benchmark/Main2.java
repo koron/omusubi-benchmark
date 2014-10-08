@@ -1,5 +1,8 @@
 package net.kaoriya.omusubi.benchmark;
 
+/**
+ * Benchmark set operations.
+ */
 public class Main2 {
 
     final static int NUM_MAX = 1000000;
